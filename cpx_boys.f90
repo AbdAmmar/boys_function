@@ -54,10 +54,13 @@ complex*16 function cboys_f(n, z)
       sq_z_im = 0.5d0 * z_im / sq_z_re 
       sq_z    = sq_z_re + (0.d0, 1.d0) * sq_z_im
 
-      z_exp = zexp(-z)
+      z_exp = 0.5d0 * zexp(-z)
       z_inv = (1.d0, 0.d0) / z
 
       cboys_f = 0.5d0 * sqpi * cpx_erf(sq_z_re, sq_z_im) / sq_z
+      !print*, ''
+      !print*, z, cboys_f
+      !print*, ''
       mmax = n
       if(mmax .gt. 0) then
         do i = 0, mmax-1
